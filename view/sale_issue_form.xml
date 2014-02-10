@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+     copyright notices and license terms. -->
+<form string="Issue">
+    <label name="sale"/>
+    <field name="sale"/>
+    <label name="sale_party"/>
+    <field name="sale_party"/>
+    <label name="category"/>
+    <field name="category"/>
+    <label name="subject"/>
+    <field name="subject"/>
+    <label name="causing_party"/>
+    <field name="causing_party"/>
+    <label name="cost"/>
+    <field name="cost"/>
+</form>

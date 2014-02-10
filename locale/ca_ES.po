@@ -1,0 +1,135 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:sale.issue,category:"
+msgid "Category"
+msgstr "Categoria"
+
+msgctxt "field:sale.issue,causing_party:"
+msgid "Causing Party"
+msgstr "Tercer causant"
+
+msgctxt "field:sale.issue,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "field:sale.issue,cost:"
+msgid "Cost"
+msgstr "Cost"
+
+msgctxt "field:sale.issue,create_date:"
+msgid "Create Date"
+msgstr "Data de creació"
+
+msgctxt "field:sale.issue,create_uid:"
+msgid "Create User"
+msgstr "Usuari de creació"
+
+msgctxt "field:sale.issue,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:sale.issue,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:sale.issue,sale:"
+msgid "Sale"
+msgstr "Venda"
+
+msgctxt "field:sale.issue,sale_party:"
+msgid "Sale Party"
+msgstr "Tercer de la venda"
+
+msgctxt "field:sale.issue,subject:"
+msgid "Subject"
+msgstr "Assumpte"
+
+msgctxt "field:sale.issue,write_date:"
+msgid "Write Date"
+msgstr "Data modificació"
+
+msgctxt "field:sale.issue,write_uid:"
+msgid "Write User"
+msgstr "Usuari modificació"
+
+msgctxt "field:sale.issue.category,create_date:"
+msgid "Create Date"
+msgstr "Data de creació"
+
+msgctxt "field:sale.issue.category,create_uid:"
+msgid "Create User"
+msgstr "Usuari de creació"
+
+msgctxt "field:sale.issue.category,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:sale.issue.category,name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:sale.issue.category,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:sale.issue.category,write_date:"
+msgid "Write Date"
+msgstr "Data modificació"
+
+msgctxt "field:sale.issue.category,write_uid:"
+msgid "Write User"
+msgstr "Usuari modificació"
+
+msgctxt "model:ir.action,name:act_issue_cause_form"
+msgid "Cause Issues"
+msgstr "Incidències causades"
+
+msgctxt "model:ir.action,name:act_issue_party_form"
+msgid "Sale Issues"
+msgstr "Incidencies venda"
+
+msgctxt "model:ir.action,name:act_issue_sale_form"
+msgid "Issues"
+msgstr "Incidencies"
+
+msgctxt "model:ir.action,name:act_sale_issue"
+msgid "Issues"
+msgstr "Incidencies"
+
+msgctxt "model:ir.action,name:act_sale_issue_category"
+msgid "Issue Category"
+msgstr "Categoria d'incidencia"
+
+msgctxt "model:ir.ui.menu,name:menu_sale_issue"
+msgid "Issue"
+msgstr "Incidència"
+
+msgctxt "model:ir.ui.menu,name:menu_sale_issue_category"
+msgid "Issue Category"
+msgstr "Categoria d'incidencia"
+
+msgctxt "model:res.group,name:group_sale_issue"
+msgid "Sale Issue"
+msgstr "Incidencies de vendes"
+
+msgctxt "model:res.group,name:group_sale_issue_admin"
+msgid "Sale Issue Administration"
+msgstr "Administració d'incidencies de vendes"
+
+msgctxt "model:sale.issue,name:"
+msgid "Issues"
+msgstr "Incidencies"
+
+msgctxt "model:sale.issue.category,name:"
+msgid "Issue Category"
+msgstr "Categoria d'incidencia"
+
+msgctxt "view:sale.issue.category:"
+msgid "Issue Category"
+msgstr "Categoria d'incidencia"
+
+msgctxt "view:sale.issue:"
+msgid "Issue"
+msgstr "Incidència"
