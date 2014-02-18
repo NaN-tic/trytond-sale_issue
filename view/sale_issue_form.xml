@@ -8,8 +8,11 @@
     <field name="sale_party"/>
     <label name="category"/>
     <field name="category"/>
+    <newline/>
     <label name="subject"/>
-    <field name="subject"/>
+    <field name="subject" colspan="3"/>
+    <separator name="description" colspan="4"/>
+    <field name="description" colspan="4"/>
     <label name="causing_party"/>
     <field name="causing_party"/>
     <label name="cost"/>

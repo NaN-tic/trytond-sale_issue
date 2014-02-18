@@ -36,6 +36,7 @@ class Issue(ModelSQL, ModelView):
                 on_change_with=['sale']), 'on_change_with_sale_party',
         searcher='search_sale')
     causing_party = fields.Many2One('party.party', 'Causing Party')
+    description = fields.Text('Description')
 
     @staticmethod
     def default_company():
