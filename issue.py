@@ -20,21 +20,19 @@ class Issue(ModelSQL, ModelView):
     __name__ = 'sale.issue'
 
     sale = fields.Many2One('sale.sale', 'Sale', required=True)
-    company = fields.Function(fields.Many2One('company.company', 'Company',
-        on_change_with=['sale']), 'on_change_with_company',
-        searcher='search_sale')
+    company = fields.Function(fields.Many2One('company.company', 'Company'),
+        'on_change_with_company', searcher='search_sale')
     subject = fields.Char('Subject', required=True)
     category = fields.Many2One('sale.issue.category', 'Category',
         required=True)
-    currency_digits = fields.Function(fields.Integer('Currency Digits',
-            on_change_with=['sale']), 'on_change_with_currency_digits')
+    currency_digits = fields.Function(fields.Integer('Currency Digits'),
+        'on_change_with_currency_digits')
     cost = fields.Numeric('Cost',
         digits=(16, Eval('currency_digits', 2)),
         depends=['currency_digits']
         )
-    sale_party = fields.Function(fields.Many2One('party.party', 'Sale Party',
-                on_change_with=['sale']), 'on_change_with_sale_party',
-        searcher='search_sale')
+    sale_party = fields.Function(fields.Many2One('party.party', 'Sale Party'),
+        'on_change_with_sale_party', searcher='search_sale')
     causing_party = fields.Many2One('party.party', 'Causing Party')
     description = fields.Text('Description')
 
@@ -42,14 +40,17 @@ class Issue(ModelSQL, ModelView):
     def default_company():
         return Transaction().context.get('company')
 
+    @fields.depends('sale')
     def on_change_with_company(self, name=None):
         if self.sale:
             return self.sale.company.id
 
+    @fields.depends('sale')
     def on_change_with_sale_party(self, name=None):
         if self.sale:
             return self.sale.party.id
 
+    @fields.depends('sale')
     def on_change_with_currency_digits(self, name=None):
         if self.sale:
             return self.sale.currency.digits
