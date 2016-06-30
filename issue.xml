@@ -109,7 +109,9 @@
           </record>
 
           <record model="ir.rule" id="rule_sale_issue1">
-            <field name="domain">[('company', '=', user.company.id if user.company else None)]</field>
+            <field name="domain"
+                eval="[('company', '=', Eval('user', {}).get('company', None))]"
+                pyson="1"/>
             <field name="rule_group" ref="rule_group_sale_issue"/>
           </record>
 
@@ -117,7 +119,9 @@
         <record model="ir.action.act_window" id="act_issue_sale_form">
             <field name="name">Issues</field>
             <field name="res_model">sale.issue</field>
-            <field name="domain">[("sale", "=", Eval('active_id'))]</field>
+            <field name="domain"
+                eval="[('sale', '=', Eval('active_id'))]"
+                pyson="1"/>
         </record>
         <record model="ir.action.keyword"
                 id="act_open_issue_sale_keyword1">
@@ -128,7 +132,9 @@
         <record model="ir.action.act_window" id="act_issue_party_form">
             <field name="name">Sale Issues</field>
             <field name="res_model">sale.issue</field>
-            <field name="domain">[("sale_party", "=", Eval('active_id'))]</field>
+            <field name="domain"
+                eval="[('sale_party', '=', Eval('active_id'))]"
+                pyson="1"/>
         </record>
         <record model="ir.action.keyword"
                 id="act_open_issue_party_keyword1">
@@ -140,7 +146,9 @@
         <record model="ir.action.act_window" id="act_issue_cause_form">
             <field name="name">Caused Issues</field>
             <field name="res_model">sale.issue</field>
-            <field name="domain">[("causing_party", "=", Eval('active_id'))]</field>
+            <field name="domain"
+                eval="[('causing_party', '=', Eval('active_id'))]"
+                pyson="1"/>
         </record>
         <record model="ir.action.keyword"
                 id="act_open_issue_cause_keyword1">
