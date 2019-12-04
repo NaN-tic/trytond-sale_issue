@@ -6,7 +6,6 @@ from trytond.pyson import Eval
 from trytond.transaction import Transaction
 
 __all__ = ['IssueCategory', 'Issue', 'Sale', 'Party']
-__metaclass__ = PoolMeta
 
 
 class IssueCategory(ModelSQL, ModelView):
@@ -62,12 +61,12 @@ class Issue(ModelSQL, ModelView):
         return [('sale.' + name,) + tuple(clause[1:])]
 
 
-class Sale:
+class Sale(metaclass=PoolMeta):
     __name__ = 'sale.sale'
     issues = fields.One2Many('sale.issue', 'sale', 'Issues')
 
 
-class Party:
+class Party(metaclass=PoolMeta):
     __name__ = 'party.party'
     sale_issues = fields.One2Many('sale.issue', 'sale_party', 'Sale Issues')
     caused_issues = fields.One2Many('sale.issue', 'causing_party',

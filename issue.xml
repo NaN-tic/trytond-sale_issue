@@ -9,19 +9,11 @@
             <field name="user" ref="res.user_admin"/>
             <field name="group" ref="group_sale_issue_admin"/>
         </record>
-        <record model="res.user-res.group" id="user_trigger_group_sale_issue_admin">
-            <field name="user" ref="res.user_trigger"/>
-            <field name="group" ref="group_sale_issue_admin"/>
-        </record>
         <record model="res.group" id="group_sale_issue">
             <field name="name">Sale Issue</field>
         </record>
         <record model="res.user-res.group" id="user_admin_group_sale_issue">
             <field name="user" ref="res.user_admin"/>
-            <field name="group" ref="group_sale_issue"/>
-        </record>
-        <record model="res.user-res.group" id="user_trigger_group_sale_issue">
-            <field name="user" ref="res.user_trigger"/>
             <field name="group" ref="group_sale_issue"/>
         </record>
         <record model="ir.ui.view" id="sale_issue_view_form">
@@ -104,6 +96,7 @@
         </record>
 
           <record model="ir.rule.group" id="rule_group_sale_issue">
+            <field name="name">Sale Issue Company</field>
             <field name="model" search="[('model', '=', 'sale.issue')]"/>
             <field name="global_p" eval="True"/>
           </record>
