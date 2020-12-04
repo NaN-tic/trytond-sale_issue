@@ -1,10 +1,10 @@
 # The COPYRIGHT file at the top level of this repository contains the full
 # copyright notices and license terms.
 from trytond.pool import Pool
-from .issue import *
+from . import issue
 
 def register():
     Pool.register(
-        IssueCategory,
-        Issue,
+        issue.IssueCategory,
+        issue.Issue,
         module='sale_issue', type_='model')
