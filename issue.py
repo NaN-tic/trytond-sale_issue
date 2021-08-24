@@ -2,8 +2,9 @@
 #this repository contains the full copyright notices and license terms.
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.pool import PoolMeta
-from trytond.pyson import Eval
 from trytond.transaction import Transaction
+from trytond.modules.product import price_digits
+from trytond.modules.currency.fields import Monetary
 
 __all__ = ['IssueCategory', 'Issue', 'Sale', 'Party']
 
@@ -24,12 +25,10 @@ class Issue(ModelSQL, ModelView):
     subject = fields.Char('Subject', required=True)
     category = fields.Many2One('sale.issue.category', 'Category',
         required=True)
-    currency_digits = fields.Function(fields.Integer('Currency Digits'),
-        'on_change_with_currency_digits')
-    cost = fields.Numeric('Cost',
-        digits=(16, Eval('currency_digits', 2)),
-        depends=['currency_digits']
-        )
+    currency = fields.Function(
+        fields.Many2One('currency.currency', 'Currency'),
+        'on_change_with_currency')
+    cost = Monetary('Cost', digits=price_digits, currency='currency')
     sale_party = fields.Function(fields.Many2One('party.party', 'Sale Party'),
         'on_change_with_sale_party', searcher='search_sale')
     causing_party = fields.Many2One('party.party', 'Causing Party')
@@ -49,10 +48,10 @@ class Issue(ModelSQL, ModelView):
         if self.sale:
             return self.sale.party.id
 
-    @fields.depends('sale')
-    def on_change_with_currency_digits(self, name=None):
-        if self.sale:
-            return self.sale.currency.digits
+    @fields.depends('sale', '_parent_sale.currency')
+    def on_change_with_currency(self, name=None):
+        if self.sale and self.sale.currency:
+            return self.sale.currency.id
 
     @classmethod
     def search_sale(cls, name, clause):
