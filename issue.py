@@ -4,6 +4,7 @@ from trytond.model import ModelView, ModelSQL, fields
 from trytond.pool import PoolMeta
 from trytond.transaction import Transaction
 from trytond.modules.product import price_digits
+from trytond.pyson import Eval
 from trytond.modules.currency.fields import Monetary
 
 __all__ = ['IssueCategory', 'Issue', 'Sale', 'Party']
