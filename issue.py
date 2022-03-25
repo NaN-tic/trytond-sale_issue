@@ -30,9 +30,16 @@ class Issue(ModelSQL, ModelView):
         digits=(16, Eval('currency_digits', 2)),
         depends=['currency_digits']
         )
-    sale_party = fields.Function(fields.Many2One('party.party', 'Sale Party'),
+    sale_party = fields.Function(fields.Many2One('party.party', 'Sale Party',
+        context={
+            'company': Eval('company'),
+        }, depends=['company']),
         'on_change_with_sale_party', searcher='search_sale')
-    causing_party = fields.Many2One('party.party', 'Causing Party')
+    causing_party = fields.Many2One('party.party', "Causing Party",
+        context={
+            'company': Eval('company', -1),
+            },
+        depends=['company'])
     description = fields.Text('Description')
 
     @staticmethod
